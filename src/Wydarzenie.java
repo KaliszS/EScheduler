@@ -38,7 +38,7 @@ public class Wydarzenie {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Data: ").append(data).append("\n Czas trwania: ").append(czasTrwania).append("\n");
+        sb.append("Data: ").append(data).append("\nCzas trwania: ").append(czasTrwania).append("\n");
         return sb.toString();
     }
 }
