@@ -1,4 +1,5 @@
-import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Main {
@@ -6,12 +7,13 @@ public class Main {
         Dziennik d = new Dziennik();
         Wydarzenie w1 = new Wydarzenie(
                 new GregorianCalendar(2010, 11, 3, 13, 00).getTime(),
-                1.5,
+                new GregorianCalendar(2010, 11, 3, 14, 00).getTime(),
                 "Fryzjer", "sciecie", "wawa");
         d.dodajWydarzenie(w1);
 
         System.out.println(d);
-        
-        d.dodajWydarzenie(w1);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
+        System.out.println(sdf.format(w1.dajZakonczenie()));
     }
 }
