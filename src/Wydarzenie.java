@@ -3,12 +3,12 @@ import java.util.Date;
 
 public class Wydarzenie {
     private Date data;
-    private Time czasTrwania;
+    private double czasTrwania;
     private String nazwa;
     private String opis;
     private String miejsce;
 
-    public Wydarzenie(Date data, Time czasTrwania, String nazwa, String opis, String miejsce) {
+    public Wydarzenie(Date data, double czasTrwania, String nazwa, String opis, String miejsce) {
         this.data = data;
         this.czasTrwania = czasTrwania;
         this.nazwa = nazwa;
@@ -24,7 +24,7 @@ public class Wydarzenie {
         this.data = data;
     }
 
-    public void edytujCzas(Wydarzenie w, Time czasTrwania) {
+    public void edytujCzas(Wydarzenie w, double czasTrwania) {
         this.czasTrwania = czasTrwania;
     }
 
@@ -38,7 +38,8 @@ public class Wydarzenie {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Data: ").append(data).append("\nCzas trwania: ").append(czasTrwania).append("\n");
+        sb.append("Data: ").append(data).append("\nCzas trwania: ").append(czasTrwania).append("h\nNazwa: ").
+                append(nazwa).append("\nOpis: ").append(opis).append("\nMiejsce: ").append(miejsce);
         return sb.toString();
     }
 }

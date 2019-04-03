@@ -1,14 +1,18 @@
 import java.util.HashSet;
+import java.util.Set;
 
 public class Dziennik {
-    private HashSet<Wydarzenie> wydarzenia;
+    private static Set<Wydarzenie> wydarzenia;
 
     public Dziennik() {
         wydarzenia = new HashSet<Wydarzenie>();
     }
 
     public void dodajWydarzenie(Wydarzenie w) {
-        wydarzenia.add(w);
+        if(wydarzenia.contains(w) == true)
+            System.err.println("Wydarzenie juz istnieje");
+        else
+            wydarzenia.add(w);
     }
 
     public void usunWydarzenie(Wydarzenie w) {
