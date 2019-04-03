@@ -14,4 +14,11 @@ public class Dziennik {
     public void usunWydarzenie(Wydarzenie w) {
         wydarzenia.remove(w);
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(Wydarzenie w : wydarzenia)
+            sb.append(w);
+        return sb.toString();
+    }
 }

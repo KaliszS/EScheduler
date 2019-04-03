@@ -36,4 +36,9 @@ public class Wydarzenie {
         this.opis = opis;
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Data: ").append(data).append("\n Czas trwania: ").append(czasTrwania).append("\n");
+        return sb.toString();
+    }
 }
