@@ -4,4 +4,8 @@ public class OknoEdycjiWydarzenia {
 
     }
 
+    public void edytowano(){
+
+    }
+
 }

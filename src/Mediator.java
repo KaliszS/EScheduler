@@ -1,4 +1,5 @@
 public class Mediator {
+    public Wydarzenie w;
 
     public void dodajWydarzenie(Wydarzenie w) {
 

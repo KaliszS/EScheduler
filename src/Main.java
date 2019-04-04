@@ -8,7 +8,7 @@ public class Main {
         Wydarzenie w1 = new Wydarzenie(
                 new GregorianCalendar(2010, 11, 3, 13, 00).getTime(),
                 new GregorianCalendar(2010, 11, 3, 14, 00).getTime(),
-                "Fryzjer", "sciecie", "wawa");
+                    "Fryzjer", "sciecie", "wawa");
         d.dodajWydarzenie(w1);
 
         System.out.println(d);

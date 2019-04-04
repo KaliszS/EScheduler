@@ -8,6 +8,8 @@ public class Wydarzenie {
     private String opis;
     private String miejsce;
 
+    private boolean res;
+
     public Wydarzenie(Date rozpoczecie, Date zakonczenie, String nazwa, String opis, String miejsce) {
         this.rozpoczecie = rozpoczecie;
         this.zakonczenie = zakonczenie;
@@ -50,6 +52,11 @@ public class Wydarzenie {
         sb.append("Rozpocznie się: ").append(rozpoczecie).append("\nZakończy się: ").append(zakonczenie).append("\nNazwa: ").
                 append(nazwa).append("\nOpis: ").append(opis).append("\nMiejsce: ").append(miejsce);
         return sb.toString();
+    }
+
+    public boolean walidujDaneWydarzenia(Wydarzenie w){
+        if(res == true) return true;
+        else return false;
     }
 
 
