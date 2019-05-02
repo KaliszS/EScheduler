@@ -12,17 +12,11 @@ import java.util.GregorianCalendar;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws IOException{
-        wyswietlOknoWydarzenia(primaryStage);
+    public void start(Stage primaryStage) throws IOException, InterruptedException{
+        OknoNowegoWydarzenia okno1 = new OknoNowegoWydarzenia();
+        okno1.wyswietl(primaryStage);
 
-    }
 
-    public void wyswietlOknoWydarzenia(Stage primaryStage) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("OknoNowegoWydarzenia.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 400);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
 
