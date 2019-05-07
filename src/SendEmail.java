@@ -1,61 +1,67 @@
+
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-import static java.security.Security.setProperty;
-
-
 public class SendEmail {
 
+    Properties emailProperties;
+    Session mailSession;
+    MimeMessage emailMessage;
 
-    public static void main(String [] args) {
-        setProperty("mail.user", "eschedulerprojektpio@gmail.com");
-        setProperty("mail.password", "KusznikBezHonoru");
+    public static void main(String[] args) throws javax.mail.MessagingException {
 
-        // Recipient's email ID needs to be mentioned.
-        String to = "mioawoj@gmail.com";
+        SendEmail javaEmail = new SendEmail();
 
-        // Sender's email ID needs to be mentioned
-        String from = "escheduler@gmail.com";
-
-        // Assuming you are sending email from localhost
-        String host = "localhost";
-
-        // Get system properties
-        Properties properties = System.getProperties();
-
-        // Setup mail server
-        properties.setProperty("mail.smtp.host", host);
-
-        // Get the default Session object.
-        Session session = Session.getDefaultInstance(properties);
-
-        try {
-
-            // Create a default MimeMessage object.
-            MimeMessage message = new MimeMessage(session);
-
-            // Set From: header field of the header.
-            message.setFrom(new InternetAddress(from));
-
-            // Set To: header field of the header.
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
-            // Set Subject: header field
-            message.setSubject("This is the Subject Line!");
-
-            // Now set the actual message
-            message.setText("This is actual message");
-
-            // Send message
-            Transport.send(message);
-            System.out.println("Sent message successfully....");
-        } catch (MessagingException mex) {
-            mex.printStackTrace();
-        }
+        javaEmail.setMailServerProperties();
+        javaEmail.createEmailMessage();
+        javaEmail.sendEmail();
     }
+
+    public void setMailServerProperties() {
+
+        String emailPort = "587";//gmail's smtp port
+
+        emailProperties = System.getProperties();
+        emailProperties.put("mail.smtp.port", emailPort);
+        emailProperties.put("mail.smtp.auth", "true");
+        emailProperties.put("mail.smtp.starttls.enable", "true");
+
+    }
+
+    public void createEmailMessage() throws javax.mail.MessagingException {
+        String[] toEmails = { "mioawoj@gmail.com" };
+        String emailSubject = "STRZAŁ Z BATA";
+        String emailBody = "DO ROBOTYYYY";
+
+        mailSession = Session.getDefaultInstance(emailProperties, null);
+        emailMessage = new MimeMessage(mailSession);
+
+        for (int i = 0; i < toEmails.length; i++) {
+            emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
+        }
+
+        emailMessage.setSubject(emailSubject);
+        emailMessage.setContent(emailBody, "text/html");//for a html email
+        //emailMessage.setText(emailBody);// for a text email
+
+    }
+
+    public void sendEmail() throws javax.mail.MessagingException {
+
+        String emailHost = "smtp.gmail.com";
+        String fromUser = "eschedulerpio@gmail.com";//just the id alone without @gmail.com
+        String fromUserEmailPassword = "KusznikBezHonoru";
+
+        Transport transport = mailSession.getTransport("smtp");
+
+        transport.connect(emailHost, fromUser, fromUserEmailPassword);
+        transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
+        transport.close();
+        System.out.println("Email sent successfully.");
+    }
+
 }
