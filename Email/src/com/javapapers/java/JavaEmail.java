@@ -34,7 +34,7 @@ public class JavaEmail {
     }
 
     public void createEmailMessage() throws javax.mail.MessagingException {
-        String[] toEmails = { "skaliszoo@gmail.com" };
+        String[] toEmails = { "Bobobobo@gmail.com" };
         String emailSubject = "STRZAŁ Z BATA";
         String emailBody = "DO ROBOTYYYY";
 
@@ -54,8 +54,8 @@ public class JavaEmail {
     public void sendEmail() throws javax.mail.MessagingException {
 
         String emailHost = "smtp.gmail.com";
-        String fromUser = "eschedulerprojektpio@gmail.com";//just the id alone without @gmail.com
-        String fromUserEmailPassword = "KusznikBezHonoru";
+        String fromUser = "NIEINTERESUJSIE@gmail.com";//just the id alone without @gmail.com
+        String fromUserEmailPassword = "TUBEDZIEHASLO";
 
         Transport transport = mailSession.getTransport("smtp");
 
