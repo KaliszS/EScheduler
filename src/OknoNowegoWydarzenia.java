@@ -54,6 +54,15 @@ public class OknoNowegoWydarzenia {
     }
 
     public void wyslij() {
+        SendEmail javaEmail = new SendEmail();
+
+        javaEmail.setMailServerProperties();
+        try {
+            javaEmail.createEmailMessage(podsumowanie.getText(), email.getText());
+            javaEmail.sendEmail();
+        } catch (MessagingException e) {
+            System.out.println("Cannot send email");
+        }
 
     }
 

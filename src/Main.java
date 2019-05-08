@@ -11,5 +11,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException{
         OknoNowegoWydarzenia okno1 = new OknoNowegoWydarzenia();
         okno1.wyswietl(primaryStage);
+
+        /*
+        OknoLogowania okno2 = new OknoLogowania();
+        okno2.wyswietl(primaryStage);
+        */
+
     }
 }

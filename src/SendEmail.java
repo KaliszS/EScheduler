@@ -12,15 +12,6 @@ public class SendEmail {
     Session mailSession;
     MimeMessage emailMessage;
 
-    public static void main(String[] args) throws javax.mail.MessagingException {
-
-        SendEmail javaEmail = new SendEmail();
-
-        javaEmail.setMailServerProperties();
-        javaEmail.createEmailMessage();
-        javaEmail.sendEmail();
-    }
-
     public void setMailServerProperties() {
 
         String emailPort = "587";//gmail's smtp port
@@ -32,20 +23,18 @@ public class SendEmail {
 
     }
 
-    public void createEmailMessage() throws javax.mail.MessagingException {
-        String[] toEmails = { "mioawoj@gmail.com" };
-        String emailSubject = "STRZAŁ Z BATA";
-        String emailBody = "DO ROBOTYYYY";
+    public void createEmailMessage(String msg, String mail) throws javax.mail.MessagingException {
+        String toEmail = mail;
+        String emailSubject = "Wydarzenie";
 
         mailSession = Session.getDefaultInstance(emailProperties, null);
         emailMessage = new MimeMessage(mailSession);
 
-        for (int i = 0; i < toEmails.length; i++) {
-            emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
-        }
+            emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+
 
         emailMessage.setSubject(emailSubject);
-        emailMessage.setContent(emailBody, "text/html");//for a html email
+        emailMessage.setContent(msg, "text/html");//for a html email
         //emailMessage.setText(emailBody);// for a text email
 
     }
@@ -53,7 +42,7 @@ public class SendEmail {
     public void sendEmail() throws javax.mail.MessagingException {
 
         String emailHost = "smtp.gmail.com";
-        String fromUser = "eschedulerpio@gmail.com";//just the id alone without @gmail.com
+        String fromUser = "eschedulerprojektpio@gmail.com";//just the id alone without @gmail.com
         String fromUserEmailPassword = "KusznikBezHonoru";
 
         Transport transport = mailSession.getTransport("smtp");
