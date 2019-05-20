@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="224.0" prefWidth="328.0" style="-fx-background-color: #242672;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OknoLogowania">
+   <children>
+      <Button fx:id="zapisz" layoutX="21.0" layoutY="168.0" mnemonicParsing="false" onAction="#zapisz" prefHeight="36.0" prefWidth="287.0" style="-fx-background-color: #01DFD7; -fx-background-radius: 3;" text="Zapisz">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="email" layoutX="21.0" layoutY="124.0" prefHeight="25.0" prefWidth="287.0" promptText="e-mail" />
+      <TextField layoutX="21.0" layoutY="87.0" prefHeight="25.0" prefWidth="287.0" promptText="nazwisko" />
+      <Label alignment="CENTER" layoutX="45.0" layoutY="30.0" prefHeight="17.0" prefWidth="239.0" text="LOGOWANIE" textAlignment="CENTER" textFill="#d3d3d3">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
