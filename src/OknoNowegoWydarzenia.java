@@ -31,13 +31,17 @@ public class OknoNowegoWydarzenia {
     @FXML
     private Label podsumowanie;
 
-    public void wyswietl(Stage primaryStage) throws IOException {
+    private String wydarzenie;
+    private OknoKalendarza oknoKalendarza;
+
+    public void wyswietl(Stage primaryStage, OknoKalendarza okno) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("OknoNowegoWydarzenia.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 612, 400);
-        primaryStage.setTitle("Nowe wydarzenie");
+        primaryStage.setTitle("Wyślij maila");
         primaryStage.setScene(scene);
         primaryStage.show();
+        oknoKalendarza = okno;
 
     }
 
@@ -51,6 +55,13 @@ public class OknoNowegoWydarzenia {
 
         podsumowanie.setText("PODSUMOWANIE\n" + nazwa.getText() + "\nPocz: " + rozp + "\nKon: " +
                 zako + "\nMiejsce: " + miejsce.getText() + "\nOpis: " + opis.getText());
+        wydarzenie = "" + rozp + ":" + zako;
+        System.out.println(wydarzenie);
+        oknoKalendarza.addEventToList(wydarzenie);
+    }
+
+    public String getWydarzenie(){
+        return wydarzenie;
     }
 
     public void wyslij() {

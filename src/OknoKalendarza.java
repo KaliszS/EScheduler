@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -51,9 +52,9 @@ public class OknoKalendarza implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         String month = getMonthName();
-        listaWydarzen.getItems().add("Event1");
-        listaWydarzen.getItems().add("Event2");
-        listaWydarzen.getItems().add("Event3");
+        listaWydarzen.getItems().add("Premiera Star Wars IX");
+        listaWydarzen.getItems().add("Koncert Dawida Podsiadły");
+        listaWydarzen.getItems().add("Ogłoszenie nowej trylogii");
         monthChoice.setItems(FXCollections.observableArrayList("Styczeń", "Luty","Marzec", 
                 "Kwiecień", "Maj", "Czerwiec", 
                 "Lipiec", "Sierpień", "Wrzesień", 
@@ -103,6 +104,9 @@ public class OknoKalendarza implements Initializable {
 
     @FXML
     private void stworzWydarzenie(ActionEvent event) throws IOException {
+        OknoNowegoWydarzenia okno2 = new OknoNowegoWydarzenia();
+        okno2.wyswietl((Stage)((Node) event.getSource()).getScene().getWindow(), this);
+
     }
 
     @FXML
@@ -134,6 +138,11 @@ public class OknoKalendarza implements Initializable {
         String month = monthName[cal.get(Calendar.MONTH)];
 
         return month;
+    }
+
+    public void addEventToList(String wydarzenie){
+        System.out.println("zaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        listaWydarzen.getItems().add(wydarzenie);
     }
 
     public void wyswietlDzien(Date d) {

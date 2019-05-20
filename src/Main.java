@@ -10,7 +10,6 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws IOException{
         OknoKalendarza okno1 = new OknoKalendarza();
-        //OknoNowegoWydarzenia okno1 = new OknoNowegoWydarzenia();
         okno1.wyswietl(primaryStage);
 
         /*
