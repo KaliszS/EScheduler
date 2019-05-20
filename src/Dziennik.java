@@ -5,7 +5,7 @@ public class Dziennik {
     private static Set<Wydarzenie> wydarzenia;
 
     public Dziennik() {
-        wydarzenia = new HashSet<Wydarzenie>();
+        wydarzenia = new HashSet<>();
     }
 
     public void dodajWydarzenie(Wydarzenie w) {
